@@ -3,7 +3,9 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/api/newPaymentLink', function(req, res, next) {
-  res.render('apis', { title: 'APIs' });
+	var response;
+	response.link="http://Cross";
+	res.send(JSON.stringfy(response));
 });
 
 module.exports = router;

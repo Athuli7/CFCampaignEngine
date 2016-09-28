@@ -1,0 +1,53 @@
+{
+	"exec":{
+		"port":9001
+	},
+	"meta":{
+		"siteTitle":"Akhil James's Jagrithi Yathra",
+		"siteUrl":"https://495bc615.ngrok.io",
+		"sitePaymentStart":"/contribute.html",
+		"sitePaymentEnd":"/return.html",
+		"sitePaymentHook":"/api/paymentUpdateHook"
+	},
+	"payment":[
+		{
+			"enabled":true,
+			"provider":"Instamojo",
+			"priority":0,
+			"type":"rnR",
+			"url":"https://${host}/api/1.1/payment-requests/",
+			"profile":"sandbox",
+			"profiles":{
+				"sandbox":{
+					"host":"test.instamojo.com",
+					"apiKey":"eda45bf27b6fc4c37c3c255c3d904903",
+					"authToken":"e6a3cd81de7f961e69f3564216677a37",
+					"salt":"54e2bb2c10a84fbb921b9c815b529e52"
+				},
+				"production":{
+					"host":"instamojo.com",
+					"apiKey":"6b9bef62fd9d15198348d0f0d39f014c",
+					"authToken":"32d74af2a7a40713235365ea8a72a52e",
+					"salt":"6f95f8f3262a41a3ba751961b481f0a7"
+				}
+			},
+			"headers":{
+				"X-Api-Key":"apiKey",
+				"X-Auth-Token":"authToken"
+			},
+			"form":{
+				"amount":"#{amount}",
+				"purpose":"Contribution",
+				"buyer_name":"#{name}",
+				"phone":"#{number}",
+				"email":"#{email}",
+				"webhook":"@{siteUrl}@{sitePaymentHook}",
+				"redirect_url":"@{siteUrl}@{sitePaymentEnd}",
+				"allow_repeated_payments":"false",
+				"send_email":"true",
+				"send_sms":"true"
+			}
+
+		}
+	]
+}

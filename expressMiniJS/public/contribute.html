@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contribute</title>
+	<script type="text/javascript">
+		function cnR(){
+			$.post(
+				"/api/newPayment",
+				$("#slider").serialize(),
+				function(data){
+					console.log(data.status);
+					console.log(data.link);
+					console.log(data.varDump);
+					if (data.status)
+						window.location.href = data.link;
+					else
+						alert('Uh Oh, Incorrect data. Please try again');
+				}
+			);
+		}
+	</script>
+</head>
+<body>
+	<form action="/api/newPayment" id="slider" method="POST">
+	    <article id="apage_1">
+	        <div class="form-item">
+	            <label>Name: <span class="required">*</span></label>
+	            <input type="text" name="name"/>
+	        </div>
+	        <div class="form-item">
+	            <label>EMail: <span class="required">*</span></label>
+	            <input type="text" name="email"/>
+	        </div>
+	        <div class="form-item">
+	            <label>Phone: <span class="required">*</span></label>
+	            <input type="text" name="number"/>
+	        </div>
+	    </article>
+	    <article id="apage_2">
+	        <div class="form-item">
+	            <label>Amount: <span class="required">*</span></label>
+	            <input type="text" name="amount"/>
+	        </div>
+	        <!--
+	        <div class="form-item">
+	            <label>Send Payment link via SMS: <span class="required">*</span></label>
+	            <input type="checkbox" name="smsQ" value="true" />
+	        </div>
+	        <div class="form-item">
+	            <label>Send Payment link via Email: <span class="required">*</span></label>
+	            <input type="checkbox" name="emailQ" value="true" />
+	        </div>
+	        -->
+	    </article>
+	    <article id="apage_3">
+	        <div class="form-item">
+	            <label>Personal Message: <span class="required">*</span></label>
+	            <textarea rows="2" cols="20" name="PM"></textarea>
+	        </div>
+	    </article>
+</form>
+<button id="edit-submit" onclick="cnR()">Submit</button>
+<script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous">
+</script>
+<script
+	src="/assets/js/contrib_pagination.js">
+</script>
+<style
+	src="/assets/css/contrib_pagination.css">
+</style>
+</body>
+</html>

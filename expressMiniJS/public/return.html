@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Thank you.</title>
+</head>
+<body>
+<span class="in">Uh Oh,</span>Tansaction is <span class="in">in</span>complete !
+<script
+	src="https://code.jquery.com/jquery-3.1.1.min.js"
+	integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	crossorigin="anonymous">
+</script>
+<script
+	src="/assets/js/uri.js">
+</script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$.post(
+			"api/checkPayment",
+			{
+				payment_request_id:URI(window.location.href)._parts.query.split('&')[0].split('=')[1]
+			},
+			function(data){
+				console.log(data);
+				if (JSON.parse(data).payment_request.status=="Completed")
+					$('.in').fadeOut();
+			}
+		);
+	});
+</script>
+</body>
+</html>

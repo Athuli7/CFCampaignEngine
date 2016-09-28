@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!-- saved from url=(0108)https://secure.actblue.com/pages/lets-finish-what-we-started/tracking_code?host=secure.actblue.com&t=landing -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+        <script>
+//<![CDATA[
+var Contribution = window.gon && gon.contribution;
+//]]>
+</script>
+  <style type="text/css">:root #header + #content > #left > #rlblock_left
+{display:none !important;}</style></head>
+  <body>
+    <script type="text/javascript">
+document.domain = 'actblue.com';
+
+(function(top, topdoc, $){
+    var get = (function() {
+        var map = {};
+        topdoc.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m, k, v) {
+            map[k] = v;
+        });
+        return map;
+    }());
+    // Test to see if our Google Tag Manager has been included. If not, add it
+    if (top.ofaDataLayer === undefined) {
+        top['ofaDataLayer'] = top['ofaDataLayer'] || [];
+        top.ofaDataLayer.push({
+            'gtm.start': new Date().getTime(),
+            'event': 'gtm.js'
+        });
+        var top_top_script = topdoc.getElementsByTagName('script')[0];
+        var gtm_script = topdoc.createElement('script');
+        gtm_script.async = true;
+        gtm_script.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-T2MC&l=ofaDataLayer';
+        top_top_script.parentNode.insertBefore(gtm_script, top_top_script);
+    }
+
+    function bsd_tracker(tracker) {
+        // Handle TD codes from BSD
+        var gtm_data = tracker;
+        gtm_data.event = 'bsdinfo';
+        top.ofaDataLayer.push(gtm_data)
+    }
+
+    if(get.td){
+        var decode_url = "https://www.bluestatedigital.com/page/tracking/action-decode?td="+ get.td + "&callback=?";
+        $.getJSON(decode_url , function(tracker){
+             bsd_tracker(tracker);
+        });
+    }
+})(window.top, window.top.document, window.top.jQuery)
+</script>
+  
+
+</body></html>
