@@ -4,7 +4,7 @@
 	},
 	"meta":{
 		"siteTitle":"Akhil James's Jagrithi Yathra",
-		"siteUrl":"https://495bc615.ngrok.io",
+		"siteUrl":"https://james.cusat.tk",
 		"sitePaymentStart":"/contribute.html",
 		"sitePaymentEnd":"/return.html",
 		"sitePaymentHook":"/api/paymentUpdateHook"
